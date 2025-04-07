@@ -5,28 +5,92 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Entre as Ondas de Maria</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Botão Voltar ao Topo -->
-<button id="backToTop" onclick="scrollToTop()">↑ Topo</button>
-
-<script>
-  const backToTop = document.getElementById("backToTop");
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-      backToTop.classList.add("show");
-    } else {
-      backToTop.classList.remove("show");
+  <style>
+    /* Fundo animado */
+    body {
+      background: linear-gradient(-45deg, #fdfaf6, #ffe9e3, #f0d9d0, #fdfaf6);
+      background-size: 400% 400%;
+      animation: gradient 12s ease infinite;
     }
-  });
 
-  function scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+    @keyframes gradient {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    /* Botão voltar ao topo */
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #5a2a27;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50px;
+      cursor: pointer;
+      display: none;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+
+    #backToTop.show {
+      display: block;
+    }
+
+    #backToTop:hover {
+      background-color: #7b3a34;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Botão Voltar ao Topo -->
+  <button id="backToTop" onclick="scrollToTop()">↑ Topo</button>
+
+  <!-- Firebase -->
+  <!-- Import SDKs -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyACvummTF1LvoNVc1EMxagaLDMkBP65vng",
+      authDomain: "livro-ma.firebaseapp.com",
+      projectId: "livro-ma",
+      storageBucket: "livro-ma.firebasestorage.app",
+      messagingSenderId: "465256124005",
+      appId: "1:465256124005:web:2230e93c1aeb3bb6d3c08c",
+      measurementId: "G-M2KSPFZRFC"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+
+  <script>
+    // Mostrar botão de voltar ao topo
+    const backToTop = document.getElementById("backToTop");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.add("show");
+      } else {
+        backToTop.classList.remove("show");
+      }
     });
-  }
-</script>
 
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+
+  <!-- CONTEÚDO DO LIVRO -->
   <h1>Entre as Ondas de Maria</h1>
 
   <h2>Introdução</h2>
@@ -127,5 +191,6 @@
   <p>E talvez, só talvez, ainda houvesse tempo para recomeçar.</p>
 
   <p><strong>E se ainda não teve final feliz, é porque ainda não é final.</strong></p>
+
 </body>
 </html>
