@@ -1,0 +1,139 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  background: linear-gradient(-45deg, #fdfaf6, #ffe8e0, #fff7f1, #fdfaf6);
+  background-size: 400% 400%;
+  animation: backgroundMove 15s ease infinite;
+  color: #333;
+  line-height: 1.8;
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Animação do fundo */
+@keyframes backgroundMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Títulos */
+h1, h2, h3 {
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  color: #5a2a27;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 2.2em;
+  margin-top: 20px;
+}
+
+h2 {
+  font-size: 1.7em;
+  margin-top: 40px;
+}
+
+h3 {
+  font-size: 1.3em;
+  margin-top: 30px;
+}
+
+/* Parágrafos e texto */
+p {
+  margin-bottom: 20px;
+  text-align: justify;
+  font-size: 1.1em;
+  padding: 0 10px;
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
+blockquote {
+  margin: 20px;
+  padding: 10px 20px;
+  background-color: #f5f5f5;
+  border-left: 5px solid #ccc;
+  font-style: italic;
+}
+
+/* Separador */
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 40px 0;
+}
+
+/* Links */
+a {
+  color: #8b0000;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  h2 {
+    font-size: 1.4em;
+  }
+
+  h3 {
+    font-size: 1.2em;
+  }
+
+  p {
+    font-size: 1em;
+    padding: 0 5px;
+  }
+}
+
+/* Botão "voltar ao topo" */
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #8b0000;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  font-size: 14px;
+  border-radius: 50px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.3s ease;
+  z-index: 999;
+}
+
+#backToTop:hover {
+  background-color: #a84442;
+  transform: scale(1.05);
+}
+
+#backToTop.show {
+  opacity: 1;
+}
